@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Nunito',sans-serif;
 }
 
 .App-logo {
@@ -36,3 +37,21 @@
     transform: rotate(360deg);
   }
 }
+
+.todoContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* .createTodo{
+  ,
+    ,
+    textTransform: "none",
+    // fontWeight: 600,
+    ,
+    ,
+    // height: 32,
+    // fontStyle: "Roboto",
+    boxShadow: "none",
+} */

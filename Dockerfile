@@ -21,7 +21,7 @@ RUN apt-get install -y mongodb-org
 RUN apt-get install -y yarn
 
 # Install PIP
-RUN easy_install pip
+# RUN easy_install pip
 
 
 ENV ENV_TYPE staging
@@ -35,4 +35,4 @@ ENV PYTHONPATH=$PYTHONPATH:/src/
 COPY src/requirements.txt .
 
 # install dependencies
-RUN pip install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
