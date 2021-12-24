@@ -4,8 +4,9 @@ import { postTodo } from "../service/api";
 const MakeTodo = ({setToggle}) => {
   const [data, setData] = useState("");
 
-  const addTodo = async() => {
+  const addTodo = async(event) => {
     // console.log(data);
+    event.preventDefault();
     var response=await postTodo({"todo":data})
     console.log(response);
     setData('')

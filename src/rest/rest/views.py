@@ -5,7 +5,6 @@ from rest_framework import status
 import json, logging, os
 from pymongo import MongoClient
 from django.conf import settings
-from todo.serializers import TodoSerializer
 
 # mongo_uri = 'mongodb://' + os.environ["MONGO_HOST"] + ':' + os.environ["MONGO_PORT"]
 db = MongoClient(settings.DB_NAME)['test_db']
@@ -23,8 +22,11 @@ class TodoListView(APIView):
     def get(self, request):
         # Implement this method - return all todo items from db instance above.
         todo=collection.find()
-        serializer=TodoSerializer(todo,many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        data=[]
+        for doc in todo:
+            data.append({'todo':str(doc["todo"])})
+        # print(data)
+        return Response(data,status=status.HTTP_200_OK)
         
     def post(self, request):
         # Implement this method - accept a todo item in a mongo collection, persist it using db instance above.
