@@ -9,14 +9,6 @@ from django.conf import settings
 # mongo_uri = 'mongodb://' + os.environ["MONGO_HOST"] + ':' + os.environ["MONGO_PORT"]
 db = MongoClient(settings.DB_NAME)['test_db']
 collection=db['mytestDBdisdin'] 
-
-
-# todo1={
-#     "todo":"this is the first todo"
-# }
-# collection.insert_one(todo1)
-
-
 class TodoListView(APIView):
 
     def get(self, request):
